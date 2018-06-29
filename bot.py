@@ -390,6 +390,23 @@ async def rainbow(ctx):
         await asyncio.sleep(float(2))
         '''
 
+# }calculator <math problem>
+@client.command(pass_context=True)
+async def calculator(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x00FFFF, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please specify a math problem you want me to solve.")
+    else:
+        try:
+            answer = str(eval(args))
+            msg.add_field(name=":fax: Calculator", value="<@{}>: what is `{}`?\n \n<@{}>: {}".format(author.id, args, client.user.id, answer))
+        except:
+            msg.add_field(name=":fax: Calculator", value="<@{}>: I am having trouble solving that problem.".format(client.user.id))
+    await client.say(embed=msg)
+
 # }battle <user>
 @client.command(pass_context=True)
 async def battle(ctx, userName: discord.Member = None):
