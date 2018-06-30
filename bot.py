@@ -272,70 +272,87 @@ async def on_ready():
 @client.event
 async def on_message(msg):
     p = random.randint(0, 10)
-    if msg.content == "o/" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "\o")
-    elif msg.content == "\o" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "o/")
-    elif msg.content == "hello" and msg.author != client.user and p > 4:
-        c = ["hi there ( ͡° ͜ʖ ͡°)", "hoi! O/"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "bye" and msg.author != client.user and p > 4:
-        c = ["cyah tonite :>", "noo come back :<"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "good bot" and msg.author != client.user and p > 4:
-        c = ["yesh me gud bottu ʕ•ᴥ•ʔ", "gOoD bOt -.-", "I'm not your dog, bitch.", "meow? <:kat:453199975044874250>"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "bad bot" and msg.author != client.user and p > 4:
-        c = ["D':", "no pls i gud bot ;-;/", "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]", "Shut up. I'm not your fucking dog."]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "i love you" and msg.author != client.user and p > 4:
-        c = ["i love me too", "***ok.****", "Error! The user you are trying to message has blocked you.", "just give me the virus link"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "wroom" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "♪~ ᕕ(ᐛ)ᕗ")
-    elif msg.content == "gay" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "˙ ͜ʟ˙")
-    elif msg.content == "whalecum" and msg.author != client.user and p > 4:
-        c = ["(╯°□°）╯︵ ┻━┻", "stop saying that shit, kthxbai", "fucking weeb", "<:boi:453200003759079424>"]
-        await client.send_message(msg.channel, "{}".format(random.choice(c)))
-    elif msg.content == "what is love?" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "baby :notes: don't :musical_note:  hurt :notes: me :musical_note: , don't :notes: hurt :musical_note:  me :musical_note: , no :notes: more :musical_note: ")
-    elif msg.content == "have you ever had a dream?" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "have you ever had a dream where you you could where you like in and you can in the dream you could you want him so much to do you can do anything?")
-    elif msg.content == "ayy" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "ayy lmao")
-    elif msg.content == "yas" and msg.author != client.user and p > 4:
-        c = ["yas moist fam", "oh fucking hell the cringe", "yasss", "that word is illegal"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "die" and msg.author != client.user and p > 4:
-        c = ["no u", "yes", "wOw Im oFfEndEd", "i would gladly die for my country, Africa."]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "nab" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "lmfao u nab")
-    elif msg.content == "zero" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "is gey asf")
-    elif msg.content == "black" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "whiten't*")
-    elif msg.content == "jimmy" and msg.author != client.user and p > 4:
-        c = ["Jimmy stole the fucking soap again!", "That fucking Jimmy! I'll kill that kid.", "jImMy iS sUch A dIcK buT wE aLl FrIEnDs wIth HiM cuZ he Has De SoAp"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "kat" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "meow")
-    elif msg.content == "owo" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "owo what's this?")
-    elif msg.content == "im leaving" and msg.author != client.user and p > 4:
-        c = ["no dad wait! D;", "no pls ;-;/", "MUM HE LEF", "y tho"]
-        await client.send_message(msg.channel, random.choice(c))
-    elif msg.content == "<@453210408384462848>" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "<:Ping:453202438783238145>")
-    elif msg.content == "fuck u" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "<:fucku:453203813352996864>")
-    elif msg.content == "boi" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "<:boi:453200003759079424>")
-    elif msg.content == "what?" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "<:wat:453199996716843009>")
-    elif msg.content == "want sum fuk?" and msg.author != client.user and p > 4:
-        await client.send_message(msg.channel, "<:LennyThink:453199966727569408>")
+    o = str(msg.content)
+    if p > 4 and msg.author != client.user:
+        hey = ["hey", "heyy", "hEy", "HeY", "Hey", "heY", "Heyy", "heyY"]
+        hello = ["hello", "Hello", "herro", "Herro", "hellu", "Hellu"]
+        hi = ["hi", "hii", "Hii", "Hi", "hoi", "Hoi", "hai", "Hai", "HII", "HI"]
+        zero = ["zero", "Zero", "zer", "Zer"]
+        bunny = ["bunny", "Bunny", "Bunneh", "bunneh", "BUNNY", "BUNNEH", "buny", "Buny", "bun", "Bun"]
+        cel = ["celery", "Celery", "Cel", "cel", "thanos", "Thanos", "CEL"]
+        cookie = ["cookie", "cookieh", "Cookie", "Cookieh", "hypnos", "Hypnos"]
+        ster = ["ster", "Ster", "STER", "Star", "star", "STAR"]
+        minx = ["Minx", "minx"]
+        nilz = ["nilz", "Nilz", "nilzzu", "Nilzzu", "teeqo", "Teeqo"]
+        gbot = ["good bot", "gud bot", "Good bot", "Gud bot"]
+        bbot = ["Bad bot", "bad bot"]
+        wroom = ["wroom", "wrom", "nyoom", "nyoooom", "wroooom", "nyom", "WROM", "WROOM", "WROOOOM", "NYOM", "NYOOM", "NYOOOOM"]
+        whalecum = ["whale cum", "whalecum", "Whalecum", "Whale cum", "welcum", "Welcum", "Whalecome", "whalecome"]
+        yas = ["yas", "Yas", "yaas", "Yaas", "yasss", "Yasss", "YASSSS", "YAAAAASSS", "yaaaaaaaass", "yaaaass", "yas", "YAAAAAAAAS"]
+        jimmy = ["jimmy", "Jimmy", "JIMMY", "Jim", "jim", "JIM"]
+        owo = ["owo", "OwO", "OWO", "oWo"]
+        boi = ["boi", "BOI", "Boi"]
+        fku = ["fuck you", "fuck u", "fk you", "fk u", "fku", "Fuck you", "Fk u", "Fk you", "Fuck u"]
+        hru = ["how are you?", "How are you?", "how are you", "How are you", "hru", "hru?", "How r u?", "How r u", "how r u", "how r u?", "how r you?", "How r you?"]
+        if msg.content == "o/":
+            await client.send_message(msg.channel, "\o")
+        elif msg.content == "\o":
+            await client.send_message(msg.channel, "o/")
+        elif msg.content in hey:
+            b = ["heyyy", "HEY! I've been waiting for you for like {} minutes!".format(random.randint(2, 45)), "hi", "sup ma boi", "hey", "hey, how are you?"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in hello:
+            b = ["hello there ( ͡° ͜ʖ ͡°)", "hi!", "hello", "oh herro"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in hi:
+            b = ["HII", "HOI!!", "hiiii", "hoi O/"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in zero:
+            b = ["is gey asf", "should really take a shower", "has an ass flatter than the earth", "might be a girl"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in bunny:
+            b = ["is cute, but don't tell her I said that.", "always steals the pan :C", "is the zoo <:thonk:453200006338445333>", "<:LennyThink:453199966727569408>"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in cel:
+            await client.send_message(msg.channel, "is a damn weirdo i don't understand")
+        elif msg.content in cookie:
+            await client.send_message(msg.channel, "is my favorite chocolate chip cookie")
+        elif msg.content in ster:
+            b = ["is a motherfucking chicken", "still watches hentai at 3 am", "is a professional dick", "is my local drug dealer"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in minx:
+            b = ["has the tru gey", "is my best friend", "<:wew:453199988038565918>", "<:FlopFlop:461143624865021966>"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in nilz:
+            b = ["is the biggest gey i know, but thats ok", "<:Ban:461142256494313473>"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in gbot:
+            b = ["gOoD bOt -.-", "I'm not your dog.", "yesh me gud bottu ʕ•ᴥ•ʔ", "meow? <:kat:453199975044874250>"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in bbot:
+            b = ["D':", "no pls i gud bot ;-;/", "[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]", "Shut up. I'm not your fucking dog."]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in wroom:
+            b = ["♪~ ᕕ(ᐛ)ᕗ", "wrooooom", "nyoooooooooooooom", "*woooosh*"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in whalecum:
+            b = ["Stop saying that shit.", "just why", "(╯°□°）╯︵ ┻━┻", "boi", "fucking pervert"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in yas:
+            b = ["yAaS", "c r i n g e", "bloody hell, the cringe", "that was cringy as fuck", "yaass moist fam"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in jimmy:
+            b = ["He stole the soap again! Didn't he?!", "That fucking kid! I'll kill him!", "Guys... leave Jimmy alone. :C", "is such a badass tbh"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in owo:
+            b = ["owo what's this?", "OwO", "<:owo:453199973354307596>"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        elif msg.content in boi:
+            await client.send_message(msg.channel, "<:boi:453200003759079424>")
+        elif msg.content in fku:
+            await client.send_message(msg.channel, "<:fucku:453203813352996864>")
+        else:
+            await client.process_commands(msg)
     else:
         await client.process_commands(msg)
     
