@@ -1011,7 +1011,7 @@ async def throw(ctx, user: discord.Member = None):
             msg.add_field(name=error_img, value="Please mention someone you want to throw.")
         else:
             msg.set_image(url="{}".format(random.choice(throwlinks)))
-            msg.add_field(name=":handshake: Interactions", value="<@{}> got throw by <@{}>! Weee.".format(user.id, author.id))
+            msg.add_field(name=":handshake: Interactions", value="<@{}> got thrown by <@{}>! Weee.".format(user.id, author.id))
     else:
         msg.add_field(name=error_img, value="This command can only be used by VIPs and Legends.")
     await client.say(embed=msg)
