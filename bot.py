@@ -294,6 +294,7 @@ async def on_message(msg):
         boi = ["boi", "BOI", "Boi"]
         fku = ["fuck you", "fuck u", "fk you", "fk u", "fku", "Fuck you", "Fk u", "Fk you", "Fuck u"]
         hru = ["how are you?", "How are you?", "how are you", "How are you", "hru", "hru?", "How r u?", "How r u", "how r u", "how r u?", "how r you?", "How r you?"]
+        jay = ["jay", "Jay", "JAY", "jAy", "JaY", "jaY", "jAY", "JAy"]
         if msg.content == "o/":
             await client.send_message(msg.channel, "\o")
         elif msg.content == "\o":
@@ -351,6 +352,9 @@ async def on_message(msg):
             await client.send_message(msg.channel, "<:boi:453200003759079424>")
         elif msg.content in fku:
             await client.send_message(msg.channel, "<:fucku:453203813352996864>")
+        elif msg.content in jay:
+            b = ["are you fucking gay?", "dont make fun of jay ;-;", "zero secretly stole jay's code, jay is my real dad", "is actually a girl"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
         else:
             await client.process_commands(msg)
     else:
